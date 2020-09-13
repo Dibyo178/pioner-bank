@@ -92,9 +92,15 @@
 
         const depositNumber = getInputNumber("depositAmount");
 
-  
 
-        updateSpanText('currentDeposit', depositNumber);
+
+        if(depositNumber<0){
+            alert('Deposit number can not be deposit');
+        }
+        
+
+        else{
+            updateSpanText('currentDeposit', depositNumber);
            
            updateSpanText('currentBalance', depositNumber);
 
@@ -103,6 +109,12 @@
 
 
            document.getElementById('depositAmount').value='';
+        }
+
+
+  
+
+       
         })
 
         //withdraw handler....
@@ -128,11 +140,11 @@
        }
 
 
-        function updateSpanText(id ,depositNumber){
+        function updateSpanText(id ,addedNumber){
 
         const current =document.getElementById(id).innerText;
            const currentNumber=parseFloat(current);
-           const total=depositNumber+currentNumber;
+           const total=addedNumber+currentNumber;
             document.getElementById(id).innerText=total;
 
            }
